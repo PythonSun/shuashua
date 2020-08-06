@@ -69,9 +69,8 @@
                                                 {volist name="list" id="item"}
                                                 <tr>
                                                     <td>
-                                                        <input type="checkbox" name="ids[]" value="{$item['uid']}">
+                                                        <input type="checkbox" name="ids[]" value="{$item['uid']}">{$item['uid']}</input>
                                                     </td>
-                                                    <td>{$item['uid']}</td>
                                                     <td>{$item['username']}</td>
                                                     <td>
                                                         <label class="label label-success">{$item['credit1']}</label>
