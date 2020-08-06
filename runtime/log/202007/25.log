@@ -1,0 +1,701 @@
+---------------------------------------------------------------
+[ 2020-07-25T09:31:38+08:00 ] 113.66.251.128 GET /
+[ info ] appoint.toutiaozhannei.cn/ [运行时间：0.041234s][吞吐率：24.25req/s] [内存消耗：4,493.25kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3947.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /www/wwwroot/appoint.toutiaozhannei.cn/web/app/home/controller/Index.php ]
+[ info ] [ VIEW ] ./views/home/mobile/index/index.phtml [ array (
+  0 => 'controller',
+  1 => 'action',
+  2 => 'site',
+  3 => 'member',
+  4 => 'categories',
+  5 => 'banners',
+  6 => 'notices',
+  7 => 'withdraws',
+  8 => 'today_credit1',
+  9 => 'today_credit2',
+  10 => 'tasks',
+  11 => 'pageCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000303s ] mysql:host=localhost;port=3306;dbname=weike;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_config` [ RunTime:0.001479s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_config` LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_task_category` [ RunTime:0.001414s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_task_category` ORDER BY order_by desc LIMIT 0,100 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT SUM((give_credit2-fee)/ticket_num) AS credit2,SUM(give_credit1/ticket_num) AS credit1 FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period*3600+create_time<1595640698 AND start_time<1595640698 AND end_time>1595640698 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_banner` [ RunTime:0.001233s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_banner` WHERE  `is_display` = 1 ORDER BY order_by desc LIMIT 10 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_notice` [ RunTime:0.001959s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_notice` WHERE  `is_display` = 1 ORDER BY order_by desc,id desc LIMIT 10 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_withdraw` [ RunTime:0.001324s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_withdraw` WHERE  `status` = 1 ORDER BY id DESC LIMIT 0,10 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640698 AND start_time<1595640698 AND end_time>1595640698 ORDER BY top_end_time DESC, end_time ASC, id DESC LIMIT 0,15 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT COUNT(1) AS num FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640698 AND start_time<1595640698 AND end_time>1595640698 [ RunTime:0.000217s ]
+---------------------------------------------------------------
+[ 2020-07-25T09:34:30+08:00 ] 47.103.138.38 GET /
+[ info ] appoint.toutiaozhannei.cn/ [运行时间：0.040178s][吞吐率：24.89req/s] [内存消耗：4,493.17kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /www/wwwroot/appoint.toutiaozhannei.cn/web/app/home/controller/Index.php ]
+[ info ] [ VIEW ] ./views/home/mobile/index/index.phtml [ array (
+  0 => 'controller',
+  1 => 'action',
+  2 => 'site',
+  3 => 'member',
+  4 => 'categories',
+  5 => 'banners',
+  6 => 'notices',
+  7 => 'withdraws',
+  8 => 'today_credit1',
+  9 => 'today_credit2',
+  10 => 'tasks',
+  11 => 'pageCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000292s ] mysql:host=localhost;port=3306;dbname=weike;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_config` [ RunTime:0.001526s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_config` LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_task_category` [ RunTime:0.001524s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_task_category` ORDER BY order_by desc LIMIT 0,100 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT SUM((give_credit2-fee)/ticket_num) AS credit2,SUM(give_credit1/ticket_num) AS credit1 FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period*3600+create_time<1595640870 AND start_time<1595640870 AND end_time>1595640870 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_banner` [ RunTime:0.001215s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_banner` WHERE  `is_display` = 1 ORDER BY order_by desc LIMIT 10 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_notice` [ RunTime:0.001219s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_notice` WHERE  `is_display` = 1 ORDER BY order_by desc,id desc LIMIT 10 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_withdraw` [ RunTime:0.001204s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_withdraw` WHERE  `status` = 1 ORDER BY id DESC LIMIT 0,10 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640870 AND start_time<1595640870 AND end_time>1595640870 ORDER BY top_end_time DESC, end_time ASC, id DESC LIMIT 0,15 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] SELECT COUNT(1) AS num FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640870 AND start_time<1595640870 AND end_time>1595640870 [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2020-07-25T09:34:30+08:00 ] 47.103.138.38 GET /explicit_not_exist_path
+[ info ] appoint.toutiaozhannei.cn/explicit_not_exist_path [运行时间：0.015288s][吞吐率：65.41req/s] [内存消耗：1,914.12kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'explicit_not_exist_path',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:31+08:00 ] 47.103.138.38 GET /index.html
+[ info ] appoint.toutiaozhannei.cn/index.html [运行时间：0.015879s][吞吐率：62.98req/s] [内存消耗：1,914.02kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:31+08:00 ] 47.103.138.38 GET /index.php
+[ info ] appoint.toutiaozhannei.cn/index.php [运行时间：0.040413s][吞吐率：24.74req/s] [内存消耗：4,493.32kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /www/wwwroot/appoint.toutiaozhannei.cn/web/app/home/controller/Index.php ]
+[ info ] [ VIEW ] ./views/home/mobile/index/index.phtml [ array (
+  0 => 'controller',
+  1 => 'action',
+  2 => 'site',
+  3 => 'member',
+  4 => 'categories',
+  5 => 'banners',
+  6 => 'notices',
+  7 => 'withdraws',
+  8 => 'today_credit1',
+  9 => 'today_credit2',
+  10 => 'tasks',
+  11 => 'pageCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000301s ] mysql:host=localhost;port=3306;dbname=weike;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_config` [ RunTime:0.001524s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_config` LIMIT 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_task_category` [ RunTime:0.001370s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_task_category` ORDER BY order_by desc LIMIT 0,100 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT SUM((give_credit2-fee)/ticket_num) AS credit2,SUM(give_credit1/ticket_num) AS credit1 FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period*3600+create_time<1595640871 AND start_time<1595640871 AND end_time>1595640871 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_banner` [ RunTime:0.001236s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_banner` WHERE  `is_display` = 1 ORDER BY order_by desc LIMIT 10 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_notice` [ RunTime:0.001152s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_notice` WHERE  `is_display` = 1 ORDER BY order_by desc,id desc LIMIT 10 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_withdraw` [ RunTime:0.001181s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_withdraw` WHERE  `status` = 1 ORDER BY id DESC LIMIT 0,10 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640871 AND start_time<1595640871 AND end_time>1595640871 ORDER BY top_end_time DESC, end_time ASC, id DESC LIMIT 0,15 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT COUNT(1) AS num FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640871 AND start_time<1595640871 AND end_time>1595640871 [ RunTime:0.000319s ]
+---------------------------------------------------------------
+[ 2020-07-25T09:34:31+08:00 ] 47.103.138.38 GET /index.jsp
+[ info ] appoint.toutiaozhannei.cn/index.jsp [运行时间：0.015143s][吞吐率：66.04req/s] [内存消耗：1,914.01kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index.jsp',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:31+08:00 ] 47.103.138.38 GET /admin/
+[ info ] appoint.toutiaozhannei.cn/admin/ [运行时间：0.016902s][吞吐率：59.16req/s] [内存消耗：2,379.07kb] [文件加载：50]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:31+08:00 ] 47.103.138.38 GET /admin/auth/login.html
+[ info ] appoint.toutiaozhannei.cn/admin/auth/login.html [运行时间：0.017298s][吞吐率：57.81req/s] [内存消耗：2,406.26kb] [文件加载：50]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'auth',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Auth->login[ /www/wwwroot/appoint.toutiaozhannei.cn/web/app/admin/controller/Auth.php ]
+[ info ] [ VIEW ] ./views/admin/pc/auth/login.phtml [ array (
+  0 => 'controller',
+  1 => 'action',
+  2 => 'admin',
+  3 => 'treeMenu',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /readme.html
+[ info ] appoint.toutiaozhannei.cn/readme.html [运行时间：0.015515s][吞吐率：64.45req/s] [内存消耗：1,913.95kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'readme',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /license.txt
+[ info ] appoint.toutiaozhannei.cn/license.txt [运行时间：0.015588s][吞吐率：64.15req/s] [内存消耗：1,914.01kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'license.txt',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /wp-includes/js/tinymce/wp-tinymce.js.gz
+[ info ] appoint.toutiaozhannei.cn/wp-includes/js/tinymce/wp-tinymce.js.gz [运行时间：0.015251s][吞吐率：65.57req/s] [内存消耗：1,914.17kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wp-includes',
+    1 => 'js',
+    2 => 'tinymce',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /index.php/explicit_not_exist_path
+[ info ] appoint.toutiaozhannei.cn/index.php/explicit_not_exist_path [运行时间：0.015051s][吞吐率：66.44req/s] [内存消耗：1,910.05kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'explicit_not_exist_path',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /static/.gitignore
+[ info ] appoint.toutiaozhannei.cn/static/.gitignore [运行时间：0.014815s][吞吐率：67.50req/s] [内存消耗：1,913.91kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => '.gitignore',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /4e5e5d7364f443e28fbf0d3ae744a59a
+[ info ] appoint.toutiaozhannei.cn/4e5e5d7364f443e28fbf0d3ae744a59a [运行时间：0.014693s][吞吐率：68.06req/s] [内存消耗：1,914.13kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '4e5e5d7364f443e28fbf0d3ae744a59a',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /?c=4e5e5d7364f443e28fbf0d3ae744a59a
+[ info ] appoint.toutiaozhannei.cn/?c=4e5e5d7364f443e28fbf0d3ae744a59a [运行时间：0.040553s][吞吐率：24.66req/s] [内存消耗：4,493.87kb] [文件加载：67]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'c' => '4e5e5d7364f443e28fbf0d3ae744a59a',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Index->index[ /www/wwwroot/appoint.toutiaozhannei.cn/web/app/home/controller/Index.php ]
+[ info ] [ VIEW ] ./views/home/mobile/index/index.phtml [ array (
+  0 => 'controller',
+  1 => 'action',
+  2 => 'site',
+  3 => 'member',
+  4 => 'categories',
+  5 => 'banners',
+  6 => 'notices',
+  7 => 'withdraws',
+  8 => 'today_credit1',
+  9 => 'today_credit2',
+  10 => 'tasks',
+  11 => 'pageCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000293s ] mysql:host=localhost;port=3306;dbname=weike;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_config` [ RunTime:0.001492s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_config` LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_task_category` [ RunTime:0.002121s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_task_category` ORDER BY order_by desc LIMIT 0,100 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT SUM((give_credit2-fee)/ticket_num) AS credit2,SUM(give_credit1/ticket_num) AS credit1 FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period*3600+create_time<1595640872 AND start_time<1595640872 AND end_time>1595640872 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_banner` [ RunTime:0.001169s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_banner` WHERE  `is_display` = 1 ORDER BY order_by desc LIMIT 10 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_notice` [ RunTime:0.001191s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_notice` WHERE  `is_display` = 1 ORDER BY order_by desc,id desc LIMIT 10 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tb_withdraw` [ RunTime:0.001200s ]
+[ sql ] [ SQL ] SELECT * FROM `tb_withdraw` WHERE  `status` = 1 ORDER BY id DESC LIMIT 0,10 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640872 AND start_time<1595640872 AND end_time>1595640872 ORDER BY top_end_time DESC, end_time ASC, id DESC LIMIT 0,15 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT COUNT(1) AS num FROM tb_task WHERE is_complete=0 AND is_display=1 AND check_period_time<1595640872 AND start_time<1595640872 AND end_time>1595640872 [ RunTime:0.000206s ]
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /templets/system/channel_list.htm
+[ info ] appoint.toutiaozhannei.cn/templets/system/channel_list.htm [运行时间：0.015665s][吞吐率：63.84req/s] [内存消耗：1,914.13kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'templets',
+    1 => 'system',
+    2 => 'channel_list.htm',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:32+08:00 ] 47.103.138.38 GET /templets/system/part_type_list.htm
+[ info ] appoint.toutiaozhannei.cn/templets/system/part_type_list.htm [运行时间：0.015583s][吞吐率：64.17req/s] [内存消耗：1,914.14kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'templets',
+    1 => 'system',
+    2 => 'part_type_list.htm',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:33+08:00 ] 47.103.138.38 GET /templets/system/part_imginfolist.htm
+[ info ] appoint.toutiaozhannei.cn/templets/system/part_imginfolist.htm [运行时间：0.015778s][吞吐率：63.38req/s] [内存消耗：1,914.28kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'templets',
+    1 => 'system',
+    2 => 'part_imginfolist.htm',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:33+08:00 ] 47.103.138.38 GET /data/admin/ver.txt
+[ info ] appoint.toutiaozhannei.cn/data/admin/ver.txt [运行时间：0.015043s][吞吐率：66.48req/s] [内存消耗：1,913.98kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'data',
+    1 => 'admin',
+    2 => 'ver.txt',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:33+08:00 ] 47.103.138.38 GET /wcm/
+[ info ] appoint.toutiaozhannei.cn/wcm/ [运行时间：0.015737s][吞吐率：63.54req/s] [内存消耗：1,913.94kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'wcm',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:33+08:00 ] 47.103.138.38 GET /phpMyAdmin/
+[ info ] appoint.toutiaozhannei.cn/phpMyAdmin/ [运行时间：0.015317s][吞吐率：65.29req/s] [内存消耗：1,914.01kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'phpMyAdmin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-25T09:34:33+08:00 ] 47.103.138.38 GET /phpmyadmin/
+[ info ] appoint.toutiaozhannei.cn/phpmyadmin/ [运行时间：0.015196s][吞吐率：65.81req/s] [内存消耗：1,914.01kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/appoint.toutiaozhannei.cn/web/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'phpmyadmin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'appoint.toutiaozhannei.cn',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
