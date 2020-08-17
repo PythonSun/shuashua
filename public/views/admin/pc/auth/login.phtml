@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -179,6 +179,10 @@
                 <div class="code-imgbox">
                     <img src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" />
                 </div>
+            </div>
+            <div>
+                <input name="login_type" value="0" type="radio"/>管理员
+                <input name="login_type" value="1" type="radio" checked="checked"/>商户
             </div>
             <div class="login_fields__submit">
                 <input class="js-login" type="button" value="登录">

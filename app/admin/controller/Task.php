@@ -13,6 +13,7 @@ use app\home\model\Member;
 use think\Db;
 use think\Log;
 use think\Loader;
+use think\Cookie;
 
 class Task extends Base{
 
@@ -41,6 +42,18 @@ class Task extends Base{
             }
         }
 
+        //zzg
+        $administrator = Cookie::get('administrator');
+        if ($administrator == null)
+        {
+        	message('登录超时', U('auth/login'), 'error');
+        }
+        if (!isset($administrator['is_shopper']))
+        {
+        	$where['uid'] = $administrator['id'];
+        }
+        //zzg
+        
         $total = \app\admin\model\Task::getCount($where);
         $list = \app\admin\model\Task::getPagination($where, 15, $total, "update_time DESC");
 

@@ -8,6 +8,7 @@
 
 namespace app\admin\controller;
 use app\admin\model\Administrator;
+use app\admin\model\Shopper;
 use think\Cookie;
 
 class Auth extends Base
@@ -24,16 +25,33 @@ class Auth extends Base
             if($result !== true){
                 message($result,'','error');
             }
-            $administrator = Administrator::getInfoByUsername($params['username']);
-            if(empty($administrator)){
-                message('管理员信息不存在','','error');
+            if ($params['login_type'] == 0)
+            {
+                $administrator = Administrator::getInfoByUsername($params['username']);
+                if(empty($administrator)){
+                    message('管理员信息不存在','','error');
+                }
+                if(!md5_password_check($params['password'],$administrator['password'],$administrator['salt'])){
+                    message('密码输入错误','','error');
+                }
+                Cookie::set('administrator',base64_encode($administrator));                
+                cache('DB_TREE_MENU_' . $administrator['id'], NULL);
+                message('登录成功', U('index/index'), 'success');
             }
-            if(!md5_password_check($params['password'],$administrator['password'],$administrator['salt'])){
-                message('密码输入错误','','error');
+            else//zzg
+            {
+                $shopper = Shopper::getInfoByUsername($params['username']);
+                if(empty($shopper)){
+                    message('商户信息不存在','','error');
+                }
+                if(!md5_password_check($params['password'],$shopper['password'],$shopper['salt'])){
+                    message('密码输入错误','','error');
+                }
+                $shopper['is_shopper'] = true;
+                Cookie::set('administrator',base64_encode($shopper));                
+                cache('DB_TREE_MENU_' . $administrator['id'], NULL);
+                message('登录成功', U('index/index'), 'success');
             }
-            Cookie::set('administrator',base64_encode($administrator));
-            cache('DB_TREE_MENU_' . $administrator['id'], NULL);
-            message('登录成功', U('index/index'), 'success');
         }
         Cookie::delete('administrator');
         return $this->fetch(__FUNCTION__);

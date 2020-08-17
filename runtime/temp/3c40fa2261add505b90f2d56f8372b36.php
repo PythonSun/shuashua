@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"./views/admin/pc/taskjoin\index.phtml";i:1571712517;s:48:"D:\www\public\views\admin\pc\common\header.phtml";i:1571712517;s:49:"D:\www\public\views\admin\pc\common\sidebar.phtml";i:1581344509;s:47:"D:\www\public\views\admin\pc\taskjoin\nav.phtml";i:1571712517;s:48:"D:\www\public\views\admin\pc\taskjoin\tabs.phtml";i:1571712517;s:48:"D:\www\public\views\admin\pc\common\footer.phtml";i:1581344425;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"./views/admin/pc/taskjoin\index.phtml";i:1596701098;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\header.phtml";i:1596701097;s:62:"D:\wwwroot\shuashua\public\views\admin\pc\common\sidebar.phtml";i:1596701097;s:60:"D:\wwwroot\shuashua\public\views\admin\pc\taskjoin\nav.phtml";i:1596701098;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\taskjoin\tabs.phtml";i:1596701098;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\footer.phtml";i:1596701097;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,25 +137,6 @@
             </a>
             </li>
             <?php endif; ?>
-
-            <li class="header">其他功能</li>
-            <li><a href="http://%77%77%77%2E%73%6F%75%68%6F%2E%6E%65%74" target="_blank">
-                    <i class="fa fa-circle-o text-red"></i>
-                    <span>帮助手册</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-circle-o text-yellow"></i>
-                    <span>网站概况</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://%77%77%77%2E%73%6F%75%68%6F%2E%6E%65%74" target="_blank">
-                    <i class="fa fa-circle-o text-aqua"></i>
-                    <span>技术支持</span>
-                </a>
-            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
@@ -297,7 +278,6 @@
                                             <table class="table table-hover">
                                                 <thead class="navbar-inner">
                                                 <tr>
-                                                    <th style="width: 45px">删?</th>
                                                     <th>编号</th>
                                                     <th>会员编号</th>
                                                     <th>任务编号</th>
@@ -378,11 +358,8 @@
             <!-- /.content-wrapper -->
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.0.0
+                    <b>Version</b> 1.0.0
                 </div>
-                <strong><SCRIPT LANGUAGE=Javascript>
-var _4cad=["\x3c\x66\x6f\x6e\x74\x20\x63\x6f\x6c\x6f\x72\x3d\x62\x6c\x75\x65\x3e\u7a0b\u5e8f\u63d0\u4f9b\uff1a\x3c\x2f\x66\x6f\x6e\x74\x3e\x3c\x61\x20\x68\x72\x65\x66\x3d\'\x68\x74\x74\x70\x3a\x2f\x2f\x77\x77\x77\x2e\x73\x6f\x75\x68\x6f\x2e\x6e\x65\x74\'\x20\x74\x61\x72\x67\x65\x74\x3d\'\x5f\x62\x6c\x61\x6e\x6b\'\x3e\x3c\x75\x3e\x3c\x66\x6f\x6e\x74\x20\x63\x6f\x6c\x6f\x72\x3d\x72\x65\x64\x3e\u641c\u864e\u7cbe\u54c1\u793e\u533a\x3c\x2f\x66\x6f\x6e\x74\x3e\x3c\x2f\x75\x3e\x3c\x2f\x61\x3e"];window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x77\x72\x69\x74\x65\x6c\x6e"](_4cad[0x0]);
-</SCRIPT></strong>
             </footer>
             <div class="control-sidebar-bg"></div>
         </div>
