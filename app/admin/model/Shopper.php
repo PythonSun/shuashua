@@ -8,6 +8,7 @@
 namespace app\admin\model;
 use think\Exception;
 use think\Log;
+use think\Db;
 
 class Shopper extends Base{
 
@@ -26,6 +27,39 @@ class Shopper extends Base{
         try{
             return self::get(['username' => $username]);
         }catch (Exception $e){
+            Log::error(__FILE__.':'.__LINE__.' 错误：'.$e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * @param $id
+     * @param $credit2
+     * @return $this|bool|null
+     * 根据ID修改余额
+     */
+    public static function updateCreditById($id, $credit2){
+        if(!check_id($id)){
+            return false;
+        }
+        try{
+            $where = [
+                'id' => $id
+            ];
+
+            if ($credit2 < 0) {
+                $where['credit2'] = ['>=', abs($credit2)];
+            }
+
+            $result = Db::table('tb_shopper')
+            ->where($where)
+            ->inc('credit2', $credit2)
+            ->exp('update_time', TIMESTAMP)
+            ->update();
+            //echo Db::getLastSql();exit;
+            return $result > 0;
+        }
+        catch (Exception $e){
             Log::error(__FILE__.':'.__LINE__.' 错误：'.$e->getMessage());
             return null;
         }

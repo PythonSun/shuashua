@@ -3,5 +3,7 @@
 ################################################################################
 
 /public/.htaccess
-/thinkphp/*
-/runtime/*
+/thinkphp
+/runtime
+/public/uploads
+/public/img

@@ -13,6 +13,8 @@ use app\home\model\CreditRecord;
 use app\home\model\Member;
 use app\admin\model\TaskCategory;
 use app\home\model\Area;
+use app\admin\model\Uploads;
+use app\admin\model\Shopper;
 use think\Db;
 use think\Log;
 use think\Loader;
@@ -247,14 +249,14 @@ class Task extends Base{
                     ];
                     if($water['is_mark']==1 && $image->width() > $water['mark_width'] && $image->height() > $water['mark_height']) {
                         if($water['mark_type'] == 'text'){
-                            $image->text($water['mark_txt'], './hgzb.ttf', 50, '#ff0000', 9)->save($imgresource);
+                            $image->text($water['mark_txt'], ROOT_PATH.'public/hgzb.ttf', 50, '#ff0000', 9)->save($imgresource);
                         }else{
                             $image->water(".".$water['mark_img'], 9, $water['mark_degree'])->save($imgresource);
                         }
                     }
 
                     $record = [
-                        'uid' => $this->member['uid'],
+                        'uid' => $member['id'],
                         'extension' => $info->getExtension(),
                         'save_name' => str_replace('\\','/',$info->getSaveName()),
                         'filename' => $info->getFilename(),
@@ -275,7 +277,7 @@ class Task extends Base{
             $params['start_time'] = strtotime($params['start_time']);
             $params['end_time'] = strtotime($params['end_time']);
             $params['check_period_time'] = intval($params['check_period']) * 3600 + TIMESTAMP;
-            $params['uid'] = $this->member['uid'];
+            $params['uid'] = $member['id'];
             $params['update_time'] = TIMESTAMP;
 
             // 上传操作说明配图
@@ -320,7 +322,7 @@ class Task extends Base{
             foreach ($task_operate_steps_contents as $key => $value) {
                 $task_operate_steps_params = array(
                     'task_id' => $insert_task_id,
-                    'uid' => $this->member['uid'],
+                    'uid' => $member['id'],
                     'content' => $value,
                     'image' => isset($task_operate_steps_images[$key]) ? $task_operate_steps_images[$key] : '',
                     'sort' => $key,
@@ -333,16 +335,17 @@ class Task extends Base{
                 }
             }
 
-            if($params['give_credit1']>0 || $params['amount']>0){
-                $status1 = Member::updateCreditById($member['uid'], -$params['give_credit1'], -$params['amount']);
+            //if($params['give_credit1']>0 || $params['amount']>0){
+            if($params['amount']>0){
+                $status1 = Shopper::updateCreditById($member['id'], -$params['amount']);
                 if(!$status1){
                     Db::rollback();
                     message('发布失败:-3','','error');
                 }
                 //分别记录积分和余额记录
-                if($params['give_credit1']>0){
+                /*if($params['give_credit1']>0){
                     $status2 = CreditRecord::addInfo([
-                        'uid' => $member['uid'],
+                        'uid' => $member['id'],
                         'type' => 'credit1',
                         'num' => -$params['give_credit1'],
                         'title' => '发布任务',
@@ -353,10 +356,10 @@ class Task extends Base{
                         Db::rollback();
                         message('发布失败:-4','','error');
                     }
-                }
+                }*/
                 if($params['amount']>0){
                     $status3 = CreditRecord::addInfo([
-                        'uid' => $member['uid'],
+                        'uid' => $member['id'],
                         'type' => 'credit2',
                         'num' => -$params['amount'],
                         'title' => '发布任务',
@@ -386,36 +389,6 @@ class Task extends Base{
             ]);
         }
     }
-
-    //添加任务
-    /*public function add(){
-        $member = $this->checkLogin();
-        $setting = ['push_check' => 0];
-        $config = Config::getInfo();
-        if(check_array($config['setting'])){
-            $setting = $config['setting'];
-            if(!empty($setting['period'])){
-                $setting['period'] = explode('#',$setting['period']);
-            }
-            if(!empty($setting['fee'])){
-                $setting['fee'] = round(floatval($setting['fee']*0.01),2);
-            }
-            if(!empty($setting['push_check'])){
-                $setting['push_check'] = intval($setting['push_check']);
-            }
-        }
-
-        
-        $categories = TaskCategory::getList();
-        return $this->fetch(__FUNCTION__,[
-            'item' => ['category_id' => 0],
-            'member' => $member,
-            'categories' => $categories,
-            'setting' => $setting,
-            'provinces' => Area::$provinces,
-            'operate_steps' => null
-        ]);
-    }*/
 
     public function save(){
         $id = params('id');

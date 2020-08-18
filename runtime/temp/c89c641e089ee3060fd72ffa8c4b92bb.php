@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:33:"./views/admin/pc/task\index.phtml";i:1596701097;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\header.phtml";i:1596701097;s:62:"D:\wwwroot\shuashua\public\views\admin\pc\common\sidebar.phtml";i:1596701097;s:56:"D:\wwwroot\shuashua\public\views\admin\pc\task\nav.phtml";i:1596701097;s:57:"D:\wwwroot\shuashua\public\views\admin\pc\task\tabs.phtml";i:1596701097;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\footer.phtml";i:1596701097;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:33:"./views/admin/pc/task\index.phtml";i:1597636294;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\header.phtml";i:1596701097;s:62:"D:\wwwroot\shuashua\public\views\admin\pc\common\sidebar.phtml";i:1596701097;s:56:"D:\wwwroot\shuashua\public\views\admin\pc\task\nav.phtml";i:1596701097;s:57:"D:\wwwroot\shuashua\public\views\admin\pc\task\tabs.phtml";i:1597637805;s:61:"D:\wwwroot\shuashua\public\views\admin\pc\common\footer.phtml";i:1596701097;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,6 +175,9 @@
             <a href="<?php echo U('post', 'id=' . $item['id']); ?>">查看任务</a>
         </li>
     <?php endif; ?>
+    <li <?php if(in_array($action,['post']) && empty($item)): ?>class="active" <?php endif; ?>>
+        <a href="<?php echo U('add'); ?>">添加任务</a>
+    </li>
 </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
@@ -306,8 +309,16 @@
                                                 );
                                             }
                                         });
+
+                                        $('button[name="add"]').bind('click', function () {
+                                            message("未实现");
+                                        })
                                     });
+                                    
                                 </script>
+                                <div>
+                                    <button class="btn btn-sm btn-default" name="add" type="button">添加任务</button>
+                                </div>
                             </div>
                         </div>
                     </div>
