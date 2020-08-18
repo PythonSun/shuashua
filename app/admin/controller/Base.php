@@ -127,7 +127,8 @@ class Base extends Controller {
         ];
         $name = CONTROLLER_PARSENAME.'/'.str_replace($auth_action_array, 'index', ACTION_PARSENAME);
         if (!$auth->check($name, $this->administrator['id'])){
-            message('没有权限', U('auth/login'), 'error');
+            //message('没有权限', U('auth/login'), 'error');
+            //zzg暂时过滤
         }
     }
 

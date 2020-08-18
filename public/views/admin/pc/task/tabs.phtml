@@ -7,4 +7,7 @@
             <a href="{:U('post', 'id=' . $item['id'])}">查看任务</a>
         </li>
     {/if}
+    <li {if condition="in_array($action,['post']) && empty($item)" }class="active" {/if}>
+        <a href="{:U('add')}">添加任务</a>
+    </li>
 </ul>

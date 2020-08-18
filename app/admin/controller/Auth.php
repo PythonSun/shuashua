@@ -49,7 +49,7 @@ class Auth extends Base
                 }
                 $shopper['is_shopper'] = true;
                 Cookie::set('administrator',base64_encode($shopper));                
-                cache('DB_TREE_MENU_' . $administrator['id'], NULL);
+                cache('DB_TREE_MENU_' . $shopper['id'], NULL);
                 message('登录成功', U('index/index'), 'success');
             }
         }

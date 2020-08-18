@@ -22,7 +22,7 @@
         <script src="/static/plugins/mobiscroll-2.5.2/dev/js/mobiscroll.android-ics-2.5.2.js" type="text/javascript"></script>
         <link href="/static/plugins/mobiscroll-2.5.2/dev/css/mobiscroll.android-ics-2.5.2.css" rel="stylesheet" type="text/css" />
         <!-- 日期选择 -->
-
+        
         <!-- 弹出层 -->
         <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
         <script src="/static/plugins/dialog/lib/zepto.min.js"></script>
@@ -135,11 +135,9 @@
                         <span style="color:red;" id="user_gold">0.00</span>元&nbsp;服务费
                         <span style="color:red;" id="plat_gold">0.00</span>元，退单按原款
                     </div>
-                    <div class="task-item">
-                        奖励积分：
-                        <input type="number"  placeholder="请输入奖励积分" class="task-txt" name="give_credit1" value="{$item['give_credit1']?$item['give_credit1']:''}" />
-                        <span class="ts2">积分 <span id="now_silver">{$member.credit1|intval}</span>分</span>
-                    </div>
+                    
+                    <!--奖励积分删了-->
+
                     <div class="task-item"> 审核图样：</div>
                     <div class="task-item">
                         <div class="images-box">
@@ -164,22 +162,23 @@
                             <a href="javascript:" id="addStepData" data-rate="1" class="t_wx2" onclick="uploadStepData();">{$operate_steps?'已有'.count($operate_steps).'个步骤，编辑操作说明':'添加操作说明'}</a>
                         </span>
                     </div>
-                    <div class="task-item"> 审核周期：
+                    <div class="task-item">
+                        审核周期：
                         <select style="display:inline;" class="task-txt" name="check_period">
                             {if condition="check_array($setting['period'])"}
-                                {volist name="setting['period']" id="period"}
-                                    <option value="{$period}"
+                            {volist name="setting['period']" id="period"}
+                            <option value="{$period}"
                                     {if isset($item['check_period']) && $item['check_period']==$period}
                                     selected="selected"
                                     {/if}
-                                    >
-                                        {if condition="$period eq '0'"}
-                                        立即显示
-                                        {else}
-                                        {$period}小时后显示
-                                        {/if}
-                                    </option>
-                                {/volist}
+                            >
+                            {if condition="$period eq '0'"}
+                            立即显示
+                            {else}
+                            {$period}小时后显示
+                            {/if}
+                            </option>
+                            {/volist}
                             {/if}
                         </select>
                     </div>
@@ -213,9 +212,9 @@
                         <select class="task-txt" style="width:60%;" name="province">
                             <option value="0">请选择限制区域</option>
                             {if condition="check_array($provinces)"}
-                                {volist name="provinces" id="province"}
-                                    <option value="{$province}">{$province}</option>
-                                {/volist}
+                            {volist name="provinces" id="province"}
+                            <option value="{$province}">{$province}</option>
+                            {/volist}
                             {/if}
                         </select>
                     </div>
@@ -280,10 +279,11 @@
         </div>
 
         <script type="text/javascript" src="/static/home/mobile/js/task_add.js?v=6"></script>
+
         <script type="text/javascript">
         var scroWidth= 300;//流程图的宽度
         var scroWidthCheck = 70;//验证图的宽度
-        var post_form_action = window.location.href;
+        var post_form_action = '/admin/task/add';
 
         {if isset($item['id']) && $item['id'] > 0}
         countMoney({$item['unit_price']}, {$item['ticket_num']});
@@ -292,17 +292,17 @@
         {/if}
 
         //审核图样
-        /*var checkImgLength = $("#clearfix li").length;      
-        if(checkImgLength == 0 ){                                   
+        /*var checkImgLength = $("#clearfix li").length;
+        if(checkImgLength == 0 ){
             var html = '';
             html += '<li class="checkFile" id="checkFile0">';
             html += '<div class="file_wrap checkFileWrap" id="checkFileWrap0">';
             html += '<img src="/static/home/mobile/images/img.png" id="checkImg0">';
-            html += '<input type="file" name="checkFile" class="checkInput" id="checkImgData0" onchange="setImagePreviews(0);" accept="image/*">';  
+            html += '<input type="file" name="checkFile" class="checkInput" id="checkImgData0" onchange="setImagePreviews(0);" accept="image/*">';
             html += '<div class="upload_msg checkMsg" id="checkMsg0">上传图片</div></div></li>';
-            html += '<div class="clear"></div>';        
-            $("#clearfix").append(html);    
-        }else{          
+            html += '<div class="clear"></div>';
+            $("#clearfix").append(html);
+        }else{
             var html = '';
             html += '<li class="checkFile" id="checkFile' + checkImgLength + '">';
             html += '<div class="file_wrap checkFileWrap" id="checkFileWrap' + checkImgLength + '">';
@@ -310,8 +310,8 @@
             html += '<input type="file" name="checkFile" class="checkInput" id="checkImgData' + checkImgLength + '" onchange="setImagePreviews(' + checkImgLength + ');" accept="image/*">';
             html += '<div class="upload_msg checkMsg" id="checkMsg' + checkImgLength + '">上传图片</div></div></li>';
             html += '<div class="clear"></div>';
-            $("#clearfix").append(html);    
-        }                   
+            $("#clearfix").append(html);
+        }
         if(checkImgLength > 1){
             $("#imgNum").html(checkImgLength-1);//已上传审核图片的张数
         }*/
@@ -330,47 +330,49 @@
             }
 
             html += '<li class="each_step' + (operate_step_i-1) + '">';
-            html += '<div class="each_step"><div class="step_intro">';   
-            html += '<div class="stepWrap" id="stepWrap' + (operate_step_i-1) + '">'; 
+            html += '<div class="each_step"><div class="step_intro">';
+            html += '<div class="stepWrap" id="stepWrap' + (operate_step_i-1) + '">';
             html += '<div class="step_title"  id="step_title' + (operate_step_i-1) + '">步骤' + operate_step_result +'<span class="del' + (operate_step_i-1) + '"   onclick="delStep(' + (operate_step_i-1) + ');">删除</span></div>';
             html += '</div>';
             html += '<input type="hidden" class="operate_step_id" name="operate_step_id[]" value="{$operate_step.id}" />';
             html += '<textarea id="stepText' + (operate_step_i-1) + '" name="process_sm[org{$operate_step.id}]" onblur="checkContent(this);" maxlength="1000" id="stepText' + (operate_step_i-1) + '" class="step_text" placeholder="请输入操作说明文字">{$operate_step.content}</textarea></div>';
-            html += '<div class="step_photo_wrap  stepPhotoWrap"  id="stepPhotoWrap' + (operate_step_i-1) + '"><div class="file_wrap stepFileWrap" id="stepFileWrap' + (operate_step_i-1) + '">';       
-            html += '<img src="{:to_media($operate_step.image)}" class="uploadImg" id="resultImg' + (operate_step_i-1) + '"/>'; 
-            html += '<input type="file" name="processFile[org{$operate_step.id}]" class="stepInput"  id="uploadImgData' + (operate_step_i-1) + '"  onchange="stepSetImagePreviews(' + (operate_step_i-1) + ');" accept="image/*" />';        
-            html += '<div class="upload_msg stepMsg" id="stepMsg' + (operate_step_i-1) + '">上传图片</div>'; 
+            html += '<div class="step_photo_wrap  stepPhotoWrap"  id="stepPhotoWrap' + (operate_step_i-1) + '"><div class="file_wrap stepFileWrap" id="stepFileWrap' + (operate_step_i-1) + '">';
+            html += '<img src="{:to_media($operate_step.image)}" class="uploadImg" id="resultImg' + (operate_step_i-1) + '"/>';
+            html += '<input type="file" name="processFile[org{$operate_step.id}]" class="stepInput"  id="uploadImgData' + (operate_step_i-1) + '"  onchange="stepSetImagePreviews(' + (operate_step_i-1) + ');" accept="image/*" />';
+            html += '<div class="upload_msg stepMsg" id="stepMsg' + (operate_step_i-1) + '">上传图片</div>';
             html += '</div></div></div></li>';
             {/volist}
-            $("#stepUl").append(html+'<div class="clear"></div>');      
+            $("#stepUl").append(html+'<div class="clear"></div>');
             $("#stepUl").css({width:scroWidth * operate_step_i + "px"});
         {/if}
-    
+
         //写流程
         /* $(".step_cont_wrap").css({minHeight : scroHeight + "px"}); */
         var stepImgLength = $("#stepUl li").length;
-            
+
         if(stepImgLength == 0 ){
             //初次进入，未添加过任何步骤
             html += '<li class="each_step0">';
-            html += '<div class="each_step"><div class="step_intro">';   
-            html += '<div class="stepWrap" id="stepWrap0">'; 
+            html += '<div class="each_step"><div class="step_intro">';
+            html += '<div class="stepWrap" id="stepWrap0">';
             html += '<div class="step_title"  id="step_title0">步骤一<span class="del0"   onclick="delStep(0);">删除</span></div>';
             html += '</div>';
             html += '<textarea id="process_sm" name="process_sm[]" onblur="checkContent(this);" maxlength="1000" id="stepText0" class="step_text" placeholder="请输入操作说明文字"></textarea></div>';
-            html += '<div class="step_photo_wrap  stepPhotoWrap"  id="stepPhotoWrap0"><div class="file_wrap stepFileWrap" id="stepFileWrap0">';            
-            html += '<img src="/static/home/mobile/images/img.png" id="resultImg0"/>'; 
-            html += '<input type="file" name="processFile[]" class="stepInput"  id="uploadImgData0"  onchange="stepSetImagePreviews(0);" accept="image/*" />';            
-            html += '<div class="upload_msg stepMsg" id="stepMsg0">上传图片</div>'; 
+            html += '<div class="step_photo_wrap  stepPhotoWrap"  id="stepPhotoWrap0"><div class="file_wrap stepFileWrap" id="stepFileWrap0">';
+            html += '<img src="/static/home/mobile/images/img.png" id="resultImg0"/>';
+            html += '<input type="file" name="processFile[]" class="stepInput"  id="uploadImgData0"  onchange="stepSetImagePreviews(0);" accept="image/*" />';
+            html += '<div class="upload_msg stepMsg" id="stepMsg0">上传图片</div>';
             html += '</div></div></div></li><div class="clear"></div>';
-           
-            $("#stepUl").append(html);      
+
+            $("#stepUl").append(html);
             $("#stepUl").css({width:scroWidth + "px"});
         }else{
-            $(".step_bottom_a").css({display:"block"}); 
+            $(".step_bottom_a").css({display:"block"});
         }
         $("#stepUl li").css({width:scroWidth + "px"});
         </script>
+        <!--整个js代码删了-->
+
         {include file='common/footer'}
 </body>
 
