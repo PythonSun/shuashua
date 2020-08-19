@@ -180,7 +180,7 @@
                     <img src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" />
                 </div>
             </div>
-            <div>
+            <div style="margin-top: 10px;width: 100%;text-align: center;">
                 <input name="login_type" value="0" type="radio"/>管理员
                 <input name="login_type" value="1" type="radio" checked="checked"/>商户
             </div>
@@ -192,9 +192,13 @@
     </div>
     <div class="success">
     </div>
+
+
     <div class="login_fields__submit">
         <input class="js-register" type="button" value="商户注册">
     </div>
+
+
     <div class="disclaimer">
         <p>欢迎登录后台管理系统</p>
     </div>
