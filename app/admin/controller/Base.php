@@ -114,7 +114,7 @@ class Base extends Controller {
      * @return
      */
     protected function filterAccess() {
-        if ('auth' === CONTROLLER_PARSENAME && 'login' === ACTION_PARSENAME) {
+        if ('auth' === CONTROLLER_PARSENAME && ('login' === ACTION_PARSENAME || 'register' === ACTION_PARSENAME)) {
             return ;
         }
         if ('upload' === CONTROLLER_PARSENAME || 'region' === CONTROLLER_PARSENAME || 'ueditor' === CONTROLLER_PARSENAME) {

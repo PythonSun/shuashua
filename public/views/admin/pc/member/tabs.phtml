@@ -14,4 +14,7 @@
         <a href="{:U('charge')}">充值记录</a>
     </li>
     {/if}
+    <li {if condition="in_array($action,['post']) && empty($item)" }class="active" {/if}>
+        <a href="{:U('/admin/shopper/index')}">商户列表</a>
+    </li>
 </ul>

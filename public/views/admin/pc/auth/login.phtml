@@ -187,9 +187,13 @@
             <div class="login_fields__submit">
                 <input class="js-login" type="button" value="登录">
             </div>
+            
         </form>
     </div>
     <div class="success">
+    </div>
+    <div class="login_fields__submit">
+        <input class="js-register" type="button" value="商户注册">
     </div>
     <div class="disclaimer">
         <p>欢迎登录后台管理系统</p>
@@ -199,6 +203,7 @@
     $(function () {
         //登录处理
         $('.js-login').click(function () {
+            console.log(window.location.href);
             $.post(
                 window.location.href,
                 $('#login_form').serialize(),
@@ -207,6 +212,12 @@
                     message(res.message,res.redirect,res.type);
                 }
             );
+        });
+
+        //商户注册处理
+        $('.js-register').click(function () {
+            console.log(window.location.href);
+            window.location.href = '/admin/auth/register';
         });
 
         //回车登录
