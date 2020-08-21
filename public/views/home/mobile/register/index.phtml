@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -58,27 +58,27 @@
                     <div class="item-box">
                         <input id="username" name="username" placeholder="手机号" type="text" class="m_txt">
                     </div>
-                    <div class="item-box" style="display: none;">
+                    <!--<div class="item-box" style="display: none;">
                         <input name="email" placeholder="邮箱，可用于找回密码" type="email" class="m_txt">
-                    </div>
+                    </div>-->
                     <div class="item-box">
                         <input name="password" type="password" class="m_txt" placeholder="输入密码">
                     </div>
                     <div class="item-box">
                         <input name="password_confirm" type="password" class="m_txt" placeholder="确认密码">
                     </div>
-                    <div class="item-box">
+                    <!--<div class="item-box">
                         <input type="text" class="m_txt" placeholder="输入验证码" id="captcha" name="captcha">
                         <div class="yzm">
                             <img style="width:90px; height:30px;"  src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" />
                         </div>
-                    </div>
-                    <!--<div class="item-box">
+                    </div>-->
+                    <div class="item-box">
                         <input id="verification" name="verification" class="button1 active m_txt" placeholder="请输入短信验证码" required />
                         <div class="yzm">
                             <button type="button" id="tomial" class="btn btn-primary text-center">发送验证码</button>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
                 <input type="hidden" name="parent_uid" value="{$parent_uid}" />
                 </form>
@@ -96,7 +96,7 @@
                     window.location.href,
                     $('#register_form').serialize(),
                     function(res) {
-                        $('.yzm img').click();
+                        //$('.yzm img').click();
                         message(res.message,res.redirect,res.type);
                     },'json'
                 );
@@ -117,29 +117,31 @@
                     return false;
                 }
 
-                var validate = $.trim($("#captcha").val());
-                if(validate == '') {
-                    message('请输入验证码','','error');
-                    return false;
-                }
+                //var validate = $.trim($("#captcha").val());
+                //if(validate == '') {
+                //    message('请输入验证码','','error');
+                //    return false;
+                //}
 
                 $("#tomial").attr("disabled", true);
 
                 var data = {
-                    type: 2,
+                    /*type: 2,*/
                     mobile: mobile,
-                    validate: validate
+                    /*validate: validate*/
                 };
                 Common.ApiPost("/home/register/sendsmscode", data, function (res) {
-                    if(res.type != "success"){
-                        $('.yzm img').click();
-                        $("#tomial").attr("disabled", false);
-                        message(res.message,res.redirect,res.type);
-                        return;
+                    console.log(res);
+                    if(res.type == "success"){
+                        //$('.yzm img').click();
+                        //$("#tomial").attr("disabled", false);
+                        //message(res.message,res.redirect,res.type);
+                        //return;
+                        new invokeSettime("#tomial");
                     }
-                    new invokeSettime("#tomial");
+                    message(res.message, res.redirect, res.type);                    
                 }, function (res) {
-                    $('.yzm img').click();
+                    //$('.yzm img').click();
                     $("#tomial").attr("disabled", false);
                     message(res.message,res.redirect,res.type);
                 });

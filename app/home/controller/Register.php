@@ -23,10 +23,10 @@ class Register extends  Base{
         if(request()->isAjax()){
             $params = array_trim(request()->post());
             $validate = Loader::validate('Member');
-  /*          if(!$validate->check($params)){
+            if(!$validate->check($params)){
                 message($validate->getError(),'','error');
             }
-
+/* 
             $smscode = session("smscode");
             if (empty($smscode) || $params['verification'] != $smscode) {
                 message('短信验证码错误','','error');
@@ -34,6 +34,21 @@ class Register extends  Base{
 
             session("smscode", random(6, true));
 */
+            if (Cookie::has('smscode'))
+            {
+            	$smscode = Cookie::get('smscode')['code'];
+            }
+            
+            if (!isset($smscode))
+            {
+            	message('未获取验证码','','error');
+            }
+
+            if ($params['verification'] != $smscode) 
+            {
+                message('短信验证码错误','','error');
+            }
+            
             $parent_member = [];
             if ($parent_uid > 0) {
                 $parent_member = Member::getUserInfoById($parent_uid);
@@ -81,13 +96,46 @@ class Register extends  Base{
             'parent_uid' => $parent_uid
         ]);
     }
-   /* public function sendsmscode() {
+    public function sendsmscode() {
         $params = array_trim(request()->post());
-        if (!captcha_check($params['validate'])) {
-            message('验证码错误','','error');
+        if (!check_mobile($params['mobile']))
+        {
+        	message('手机格式不正确','','error');
         }
 
-       }*/
+        $smscode = Cookie::get('smscode');
+        if (!empty($smscode) && $smscode['send_time'] - $_SERVER['REQUEST_TIME'] < 60)
+        {
+        	message('1分钟内只能获取一次验证码','','error');
+        }
+
+        //if (!captcha_check($params['validate'])) {
+        //    message('验证码错误','','error');
+        //}
+
+        $smscode = random(6, true);
+        $url = "http://utf8.api.smschinese.cn/?Uid=名洋新媒&Key=d41d8cd98f00b204e980&smsMob=".$params['mobile']."&smsText=您的验证码为:".$smscode;
+        
+        message('验证码发送成功','','success');
+
+        $ch = curl_init();
+        // curl_init()需要php_curl.dll扩展
+        $timeout = 5;
+        curl_setopt ($ch, CURLOPT_URL, $url);
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        $file_contents = curl_exec($ch);
+        curl_close($ch);
+        if (is_numeric($file_contents) && $file_contents > 0)
+        {
+        	message('验证码发送成功','','success');
+            Cookie::set('smscode', ['code'=>$smscode, 'send_time'=>$_SERVER['REQUEST_TIME']], 60);
+        }
+        else{
+            message('验证码发送失败','','error');
+            Cookie::delete('smscode');
+        }
+       }
    /*   //获取对象，如果上面没有引入命名空间，可以这样实例化：$sms = new \alisms\SendSms()
         $sms = new \alisms\SendSms();
         //设置关键的四个配置参数，其实配置参数应该写在公共或者模块下的config配置文件中，然后在获取使用，这里我就直接使用了。

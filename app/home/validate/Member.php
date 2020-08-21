@@ -15,7 +15,7 @@ class Member extends Base {
         //'email|邮箱'=>'require|checkEmail:',
         'password|密码' => 'require|min:6|confirm',
         'password_confirm|确认密码' => 'require',
-        'captcha|验证码'=>'require|captcha'
+        //'captcha|验证码'=>'require|captcha'
     ];
 
 
@@ -33,7 +33,7 @@ class Member extends Base {
         ]
     ];
 
-    //检测开始时间
+    //检测邮箱格式
     protected function checkEmail($email){
         if (!check_email($email)) {
             return '邮箱格式不正确';
